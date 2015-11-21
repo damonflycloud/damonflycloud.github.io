@@ -92,6 +92,7 @@ theme: landscape
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-   type: git
-   repo: git@github.com:damonflycloud/damonflycloud.github.io.git
-   branch: master
+  type: git
+  repo: git@github.com:damonflycloud/damonflycloud.github.com.git
+  branch: master
+  message: flycloud-blog
