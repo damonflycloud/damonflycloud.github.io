@@ -13,7 +13,8 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://damonflycloud.github.io/
+url: damonflycloud.info
+#enforce_ssl: damonflycloud.info
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -38,7 +39,7 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
-highlight:
+highlight: #代码高亮
   enable: true
   line_number: true
   auto_detect: true
@@ -82,17 +83,18 @@ tag_generator:
    per_page: 0 ##标签分类页面默认10篇文章
 
 # Disqus
-disqus_shortname: only0god
+disqus_shortname:
 
 # Extensions
 ## Plugins: http://hexo.io/plugins/
 ## Themes: http://hexo.io/themes/
-theme: landscape
+theme: next
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:damonflycloud/damonflycloud.github.com.git
+  #repo: https://github.com/damonflycloud/damonflycloud.github.io.git
+  repo: git@github.com:damonflycloud/damonflycloud.github.io.git
   branch: master
   message: flycloud-blog
