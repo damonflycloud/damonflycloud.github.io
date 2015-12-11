@@ -12,8 +12,6 @@
 
 
 
-<div id="page" class="mm-slideout mm-page">
-<a id="hamburger" class="mm-slideout mm-page" href="#mmenu">aa</a>
 <div class="container one-column {% block page_class %}{% endblock %}">
     <div class="headband"></div>
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -77,7 +75,7 @@
   {% include '_scripts/helpers.swig' %}
   {% include '_scripts/motion.swig' %}
   <script type="text/javascript" src="{{ url_for(theme.js) }}/search-toggle.js"></script>
-
+  {% include '_scripts/menu.swig' %}
 
 {% block script_extra %}{% endblock %}
 
@@ -92,10 +90,9 @@
 {% include '_scripts/mathjax.swig' %}
 {% block comment_system %}{% endblock %}
 
-{% block menu %}{% endblock %}
+
 {% include '_scripts/baidushare.swig' %}
 
-</div>
 <!-- lazyload -->
 <script type="text/javascript" src="{{ url_for(theme.js) }}/lazyload.js"></script>
 <script type="text/javascript">

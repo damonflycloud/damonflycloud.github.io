@@ -1,7 +1,7 @@
 {% extends '_layout.swig' %}
 {% import '_macro/post.swig' as post_template %}
 {% import '_macro/sidebar.swig' as sidebar_template %}
-{% import '_macro/menu.swig' as menu_template %}
+
 
 {% block title %} {{ config.title }} {% endblock %}
 
@@ -23,9 +23,7 @@
   {{ sidebar_template.render(false) }}
 {% endblock %}
 
-{% block menu %}
-       {{ menu_template.render() }}
-{% endblock %}
+
 
 {% block comment_system %}
   {% include '_scripts/comments/duoshuo.swig' %}
