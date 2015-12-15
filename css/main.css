@@ -185,7 +185,7 @@ th {
 }
 body {
   position: relative;
-  font-family: Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'Open Sans', 'Droid Sans', 'Source Sans Pro', 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif, sans-serif, sans-serif;
   font-size: 16px;
   line-height: 1.8;
   color: #555;
@@ -211,7 +211,7 @@ h6 {
   padding: 0;
   font-weight: bold;
   line-height: 1;
-  font-family: Cambria, Georgia, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", "Times New Roman", serif;
+  font-family: Cambria, Georgia, 'Open Sans', 'Droid Sans', 'Source Sans Pro', 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif, sans-serif, "Times New Roman", serif;
 }
 h1 {
   font-size: 24px;
@@ -681,7 +681,7 @@ td {
 }
 .post pre,
 .post code {
-  font-family: "PT Mono", Consolas, Monaco, Menlo, monospace;
+  font-family: "Source Code Pro", "Consolas", "PT Mono", Consolas, Monaco, Menlo, monospace;
 }
 .post code {
   background: #eee;
@@ -740,7 +740,7 @@ td {
 }
 .post .gist .gist-file {
   border: none;
-  font-family: "PT Mono", Consolas, Monaco, Menlo, monospace;
+  font-family: "Source Code Pro", "Consolas", "PT Mono", Consolas, Monaco, Menlo, monospace;
   margin: 0;
 }
 .post .gist .gist-file .gist-data {
@@ -763,7 +763,7 @@ td {
 .post .gist .gist-file .gist-meta {
   background: #f7f7f7;
   color: #8e908c;
-  font: 13px Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font: 13px Lato, 'Open Sans', 'Droid Sans', 'Source Sans Pro', 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif, sans-serif, sans-serif;
   text-shadow: 0 0;
   padding: 0;
   margin-top: 1em;
@@ -900,7 +900,7 @@ body {
   color: #fff;
   background: #222;
   border-bottom: none;
-  font-family: Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'Open Sans', 'Droid Sans', 'Source Sans Pro', 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif, sans-serif, sans-serif;
 }
 .logo {
   display: inline-block;
@@ -987,6 +987,8 @@ body {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px #888;
 }
 .menu .menu-item a:hover {
   border-bottom-color: #222;
@@ -1148,7 +1150,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e3ff2b;
+  background: #7f45ff;
 }
 .sidebar-nav {
   margin: 0;
@@ -1561,7 +1563,7 @@ body {
   margin-left: 60px;
   font-size: 16px;
   font-weight: normal;
-  font-family: Lato, "Microsoft Jhenghei", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-family: Lato, 'Open Sans', 'Droid Sans', 'Source Sans Pro', 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif, sans-serif, sans-serif;
   line-height: inherit;
 }
 .posts-collapse .post-title::after {
@@ -2123,7 +2125,7 @@ ul li {
 }
 .menu .menu-item a {
   padding: 5px 10px;
-  background: none;
+  background: #222;
   border: none;
   transition-property: background;
 }
@@ -2233,15 +2235,12 @@ ul li {
 }
 .post-more-link {
   margin-top: 20px;
-  text-align: left;
 }
 .post-more-link a {
-  padding: 0;
+  padding: 0 20px;
   font-size: 16px;
   color: #666;
   background: none;
-  border: none;
-  border-bottom: 2px solid #666;
   transition-property: border;
 }
 .post-more-link a:hover {
