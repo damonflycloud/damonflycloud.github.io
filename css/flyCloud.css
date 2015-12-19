@@ -1,6 +1,9 @@
 .test {
   border: 10px;
 }
+.main-inner .content {
+  width: 730px;
+}
 h2,
 h3,
 h4,
