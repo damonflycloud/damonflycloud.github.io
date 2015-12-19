@@ -81,9 +81,9 @@ mobile()
   right: -100%;
 }
 .menu {
-  float: right;
   margin: 8px 0 0 0;
   padding: 0 20px;
+  margin-left: 100px;
 mobile()
 mobile()
 }
@@ -112,6 +112,9 @@ mobile()
 }
 .menu-item-icon {
   display: none;
+}
+.site-search {
+  margin-right: -100px;
 }
 .posts-expand {
   padding-top: 0;
