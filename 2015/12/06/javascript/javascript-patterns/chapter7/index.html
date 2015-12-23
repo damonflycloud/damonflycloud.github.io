@@ -21,7 +21,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
 <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
 
 
@@ -50,15 +50,15 @@ JavaScript作为一种基于原型的弱类型动态语言，">
 <meta property="og:description" content="在GoF（Gang of Four）的书中提出的设计模式为面向对象的软件设计中遇到的一些普遍问题提供了解决方案。它们已经诞生很久了，而且被证实在很多情况下是很有效的。这正是你需要熟悉它的原因，也是我们要讨论它的原因。
 尽管这些设计模式跟语言和具体的实现方式无关，但它们多年来被关注到的方面仍然主要是在强类型静态语言比如C++和Java中的应用。
 JavaScript作为一种基于原型的弱类型动态语言，">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-1.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-2.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-3.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-4.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-5.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-6.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-7.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter7/7-8.jpg">
-<meta property="og:updated_time" content="2015-12-19T15:12:01.265Z">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-1.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-2.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-3.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-4.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-5.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-6.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-7.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-8.jpg">
+<meta property="og:updated_time" content="2015-12-23T12:46:56.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第七章 设计模式">
 <meta name="twitter:description" content="在GoF（Gang of Four）的书中提出的设计模式为面向对象的软件设计中遇到的一些普遍问题提供了解决方案。它们已经诞生很久了，而且被证实在很多情况下是很有效的。这正是你需要熟悉它的原因，也是我们要讨论它的原因。
@@ -185,10 +185,11 @@ JavaScript作为一种基于原型的弱类型动态语言，">
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
     (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
     e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  })(window,document,'script','//7xowny.com1.z0.glb.clouddn.com/st.js','_st');
 
   _st('install', 'RpxH2-xz3kTMGTPnfLBm','2.0.0');
 </script>
+
 
 <div class="site-search-toggle"></div>
     </div>
@@ -531,7 +532,7 @@ sale.getPrice(); <span class="comment">// "CDN$ 105.00"</span>
 </code></pre><p>如你所见，这种方法可以在运行时很灵活地添加功能和调整对象。我们来看一下如何来实现这种模式。</p>
 <h3 id="实现">实现</h3><p>一种实现装饰模式的方法是让每个装饰器成为一个拥有应该被重写的方法的对象。每个装饰器实际上是继承自已经被前一个装饰器增强过的对象。装饰器的每个方法都会调用父对象（继承自的对象）的同名方法并取得值，然后做一些额外的处理。</p>
 <p>最终的效果就是当你在第一个例子中调用<code>sale.getPrice()</code>时，实际上是在调用<code>money</code>装饰器的方法（图7-1）。但是因为每个装饰器会先调用父对象的方法，<code>money</code>的<code>getPrice()</code>先调用<code>quebec</code>的<code>getPrice()</code>，而它又会去调用<code>fedtax</code>的<code>getPrice()</code>方法，依次类推。这个链会一直走到原始的未经装饰的由<code>Sale()</code>构造函数实现的<code>getPrice()</code>。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-1.jpg" alt="图7-1 装饰模式的实现"><br>图7-1 装饰模式的实现</p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-1.jpg" alt="图7-1 装饰模式的实现"><br>图7-1 装饰模式的实现</p>
 <p>这个实现以一个构造函数和一个原型方法开始：</p>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">Sale</span><span class="params">(price)</span> </span>{
     <span class="keyword">this</span>.price = price || <span class="number">100</span>;
@@ -784,13 +785,13 @@ validator.types.isAlphaNum = {
 <p>这个模式看起来开销有点大，但在出于性能考虑时非常有用。代理对象可以作为目标对象的保护者，让目标对象做尽量少的工作。</p>
 <p>一种示例用法是“懒初始化”（延迟初始化）。假设负责初始化的对象是开销很大的，并且正好使用者将它初始化后并不真正使用它。在这种情况下，代理对象可以作为目标对象的接口起到帮助作用。代理对象接收到初始化请求，但在目标对象真正被使用之前都不会将请求传递过去。</p>
 <p>图7-2展示了这个场景，当使用目标对象的代码发出初始化请求时，代理对象回复一切就绪，但并没有将请求传递过去，只有在真正需要目标对象做些工作的时候才将两个请求一起传递过去。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-2.jpg" alt="图7-2 通过代理对象时目标对象与使用者的关系"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-2.jpg" alt="图7-2 通过代理对象时目标对象与使用者的关系"></p>
 <p>图7-2 通过代理对象时目标对象与使用者的关系</p>
 <h3 id="一个例子">一个例子</h3><p>在目标对象做某件工作开销很大时，代理模式很有用处。在web应用中，开销最大的操作之一就是网络请求，此时尽可能地合并HTTP请求是有意义的。我们来看一个这种场景下应用代理模式的实例。</p>
 <h4 id="一个视频列表（expando）">一个视频列表（expando）</h4><p>我们假设有一个用来播放选中视频的应用。你可以在这里看到真实的例子<a href="http://www.jspatterns.com/book/7/proxy.html" target="_blank" rel="external">http://www.jspatterns.com/book/7/proxy.html</a>。</p>
 <p>页面上有一个视频标题的列表，当用户点击视频标题的时候，标题下方的区域会展开并显示视频的更多信息，同时也使得视频可被播放。视频的详细信息和用来播放的URL并不是页面的一部分，它们需要通过网络请求来获取。服务端可以接受多个视频ID，这样我们就可以在合适的时候通过一次请求多个视频信息来减少HTTP请求以加快应用的速度。</p>
 <p>我们的应用允许一次展开好几个（或全部）视频，所以这是一个合并网络请求的绝好机会。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-3.jpg" alt="图7-3 真实的视频列表"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-3.jpg" alt="图7-3 真实的视频列表"></p>
 <p>图7-3 真实的视频列表</p>
 <h4 id="没有代理对象的情况">没有代理对象的情况</h4><p>这个应用中最主要的角色是两个对象：</p>
 <ul>
@@ -960,16 +961,16 @@ validator.types.isAlphaNum = {
 };
 </code></pre><p>使用代理模式可以在只改动一处原来代码的情况下，将多个web service请求合并为一个。</p>
 <p>图7-4和7-5展示了使用代理模式将与服务器三次数据交互（不用代理模式时）变为一次交互的过程。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-4.jpg" alt="图7-4 与服务器三次数据交互"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-4.jpg" alt="图7-4 与服务器三次数据交互"></p>
 <p>图7-4 与服务器三次数据交互</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-5.jpg" alt="图7-5 通过一个代理对象合并请求，减少与服务器数据交互"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-5.jpg" alt="图7-5 通过一个代理对象合并请求，减少与服务器数据交互"></p>
 <p>图7-5 通过一个代理对象合并请求，减少与服务器数据交互</p>
 <h3 id="使用代理对象做缓存">使用代理对象做缓存</h3><p>在这个例子中，目标对象的使用者（<code>videos</code>）已经可以做到不对同一个对象重复发出请求，但现实情况中并不总是这样。其实这个代理对象还可以通过缓存之前的请求结果到<code>cache</code>属性中来进一步保护<code>http</code>对象（图7-6）。然后当<code>videos</code>对象需要对同一个ID的视频请求第二次时，<code>proxy</code>对象可以直接从缓存中取出，从而避免一次网络交互。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-6.jpg" alt="图7-6 代理缓存"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-6.jpg" alt="图7-6 代理缓存"></p>
 <p>图7-6 代理缓存</p>
 <h2 id="中介者模式">中介者模式</h2><p>一个应用不论大小，都是由一些彼此独立的对象组成的。所有的对象都需要一个通讯方式来保持可维护性，即你可以安全地修改应用的一部分而不破坏其它部分。随着应用的开发和维护，会有越来越多的对象。然后，在重构代码的时候，对象可能会被移除或者被重新设计。当对象知道其它对象的太多信息并且直接通讯（直接调用彼此的方法或者修改属性）时，会导致我们不愿意看到的紧耦合。当对象耦合很紧时，要修改一个对象而不影响其它的对象是很困难的。此时甚至连一个最简单的修改都变得不那么容易，甚至连一个修改需要用多长时间都难以评估。</p>
 <p>中介者模式就是一个缓解此问题的办法，它通过解耦来提升代码的可维护性（见图7-7）。在这个模式中，各个彼此合作的对象并不直接通讯，而是通过一个<code>mediator</code>（中介者）对象通讯。当一个对象改变了状态后，它就通知中介者，然后中介者再将这个改变告知给其它应该知道这个变化的对象。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-7.jpg" alt="图7-7 中介者模式中的对象关系"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-7.jpg" alt="图7-7 中介者模式中的对象关系"></p>
 <p>图7-7 中介者模式中的对象关系</p>
 <h3 id="中介者示例">中介者示例</h3><p>我们来看一个使用中介者模式的实例。这个应用是一个游戏，它的玩法是比较两位游戏者在半分钟内按下按键的次数，次数多的获胜。玩家1需要按的是1，玩家2需要按的是0（这样他们的手指不会搅在一起）。当前分数会显示在一个计分板上。</p>
 <p>对象列表如下：</p>
@@ -982,7 +983,7 @@ validator.types.isAlphaNum = {
 <p>中介者<code>Mediator</code>知道所有的对象，它与输入设备（键盘）打交道，处理<code>keypress</code>事件，决定现在是哪位玩家玩的，然后通知这个玩家（见图7-8）。玩家负责玩（即给自己的分数加一分），然后通知中介者他这一轮已经玩完。中介者再告知计分板最新的分数，计分板更新显示。</p>
 <p>除了中介者之外，其它的对象都不知道有别的对象存在。这样就使得更新这个游戏变得很简单，比如要添加一位玩家或者是添加另外一个显示剩余时间的地方。</p>
 <p>你可以在这里看到这个游戏的在线演示<a href="http://jspatterns.com/book/7/mediator.html" target="_blank" rel="external">http://jspatterns.com/book/7/mediator.html</a>。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter7/7-8.jpg" alt="图7-8 游戏涉及的对象"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter7/7-8.jpg" alt="图7-8 游戏涉及的对象"></p>
 <p>图7-8 游戏涉及的对象</p>
 <p>玩家对象是通过<code>Player()</code>构造函数来创建的，有自己的<code>points</code>和<code>name</code>属性。原型上的<code>play()</code>方法负责给自己加一分然后通知中介者：</p>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">Player</span><span class="params">(name)</span> </span>{
@@ -1400,7 +1401,7 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/avatar/avatar.jpg" alt="flycloud" itemprop="image"/>
+          <img class="site-author-image" src="http://7xowny.com1.z0.glb.clouddn.com/avatar.jpg" alt="flycloud" itemprop="image"/>
           <p class="site-author-name" itemprop="name">flycloud</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Stay Hungry,Stay Foolish</p>
@@ -1496,7 +1497,6 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
 <!--<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>-->
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 
-
   
   
   
@@ -1511,7 +1511,7 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//7xowny.com1.z0.glb.clouddn.com//embed.js';
       ds.charset = 'UTF-8';
       /**(document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);**/
@@ -1520,10 +1520,6 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
     })();
   </script>
     
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
 
 
     
@@ -1536,10 +1532,10 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
   <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
+  <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/motion_global.js?v=0.4.4" id="motion.global"></script>
 
 
 
@@ -1553,11 +1549,9 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
 
      </ul>
  </nav>
-<!--<link type="text/css" rel="stylesheet" href="/vendors/mmenu/core/css/jquery.mmenu.all.css" />-->
 <link type="text/css" rel="stylesheet" href="http://cdn.bootcss.com/jQuery.mmenu/5.5.3/core/css/jquery.mmenu.all.css" />
 <link type="text/css" rel="stylesheet" href="/vendors/mmenu/css/flyCloudMenu.css" />
-<script type="text/javascript" src="/vendors/mmenu/core/js/jquery.mmenu.min.all.js"></script>
-<!--<script type="text/javascript" src="http://cdn.staticfile.org/jQuery.mmenu/5.5.3/core/js/jquery.mmenu.min.all.js">-->
+<script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/jquery.mmenu.min.all.js"></script>
 
 <script type="text/javascript">
   $(function () {
@@ -1707,7 +1701,7 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
 
 
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.2.0/js/scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -1882,7 +1876,7 @@ game.<span class="keyword">on</span>(<span class="string">"scorechange"</span>, 
 
 
 <!-- lazyload -->
-<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery_lazyload/1.9.5/jquery.lazyload.min.js"></script>
 <script type="text/javascript">
     jQuery(function () {
         jQuery("#posts img").lazyload({

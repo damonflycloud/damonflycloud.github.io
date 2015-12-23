@@ -21,7 +21,7 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
 <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
 
 
@@ -48,17 +48,17 @@
 <meta property="og:site_name" content="FlyCloud-Blog">
 <meta property="og:description" content="代码复用是一个既重要又有趣的话题。如果你面对自己或者别人已经写好的代码，而这些代码又是经过测试的、可维护的、可扩展的、有文档的，这时候你只想写尽量少且可以被复用的代码就是一个再自然不过的想法。
 当我们说到代码复用的时候，想到的第一件事就是继承，本章会有很大篇幅讲述这个话题，你将看到好多种方法来实现“类式（classical）”和一些其它方式的继承。但是，最最重要的事情，是你需要记住终极目标——代码">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-1.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-2.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-3.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-4.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-5.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-6.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-7.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-8.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-9.jpg">
-<meta property="og:image" content="flycloud.me/../../../../../../images/javascript/Figure/chapter6/6-10.jpg">
-<meta property="og:updated_time" content="2015-12-19T15:12:01.312Z">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-1.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-2.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-3.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-4.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-5.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-6.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-7.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-8.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-9.jpg">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-10.jpg">
+<meta property="og:updated_time" content="2015-12-23T12:46:56.840Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第六章 代码复用模式">
 <meta name="twitter:description" content="代码复用是一个既重要又有趣的话题。如果你面对自己或者别人已经写好的代码，而这些代码又是经过测试的、可维护的、可扩展的、有文档的，这时候你只想写尽量少且可以被复用的代码就是一个再自然不过的想法。
@@ -184,10 +184,11 @@
   (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
     (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
     e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+  })(window,document,'script','//7xowny.com1.z0.glb.clouddn.com/st.js','_st');
 
   _st('install', 'RpxH2-xz3kTMGTPnfLBm','2.0.0');
 </script>
+
 
 <div class="site-search-toggle"></div>
     </div>
@@ -296,10 +297,10 @@ inherit(Child, Parent);
 kid.say(); <span class="comment">// "Adam"</span>
 </code></pre><h3 id="跟踪原型链">跟踪原型链</h3><p>在这种模式中，子对象既继承了（父对象的）“自有属性”（添加给<code>this</code>的实例属性，比如<code>name</code>），也继承了原型中的属性和方法（比如<code>say()</code>）。</p>
 <p>我们来看一下在这种继承模式中原型链是怎么工作的。为了讨论方便，我们假设对象是内存中的一块空间，它包含数据和指向其它空间的引用。当使用<code>new Parent()</code>创建一个对象时，这样的一块空间就被分配了（图6-1中的2号），它保存着<code>name</code>属性的数据。如果你尝试访问<code>say()</code>方法（比如通过<code>(new Parent).say()</code>），2号空间中并没有这个方法。但是在通过隐藏的链接<code>__proto__</code>指向<code>Parent()</code>构建函数的原型<code>prototype</code>属性时，就可以访问到包含<code>say()</code>方法的1号空间（<code>Parent.prototype</code>）了。所有的这一块都是在幕后发生的，不需要任何额外的操作，但是知道它是怎样工作的有助于让你明白你正在访问或者修改的数据在哪，这是很重要的。注意，<code>__proto__</code>在这里只是为了解释原型链而存在，这个属性在语言本身中是不可用的，尽管有一些环境提供了（比如Firefox）。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-1.jpg" alt="图6-1 Parent()构造函数的原型链"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-1.jpg" alt="图6-1 Parent()构造函数的原型链"></p>
 <p>图6-1 Parent()构造函数的原型链</p>
 <p>现在我们来看一下在使用<code>inherit()</code>函数之后再使用<code>var kid = new Child()</code>创建一个新对象时会发生什么。见图6-2。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-2.jpg" alt="图6-2 继承后的原型链"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-2.jpg" alt="图6-2 继承后的原型链"></p>
 <p>图6-2 继承后的原型链</p>
 <p><code>Child()</code>构造函数是空的，也没有属性添加到<code>Child.prototype</code>上，这样，使用<code>new Child()</code>创建出来的对象都是空的，除了有隐藏的链接<code>__proto__</code>。在这个例子中，<code>__proto__</code>指向在<code>inherit()</code>函数中创建的<code>new Parent()</code>对象。</p>
 <p>现在使用<code>kid.say()</code>时会发生什么？3号对象没有这个方法，所以通过原型链找到2号。2号对象也没有这个方法，所以也通过原型链找到1号，刚好有这个方法。接下来<code>say()</code>方法引用了<code>this.name</code>，这个变量也需要解析，于是沿原型链查找的过程又走了一遍。在这个例子中，<code>this</code>指向3号对象，它没有<code>name</code>属性，然后2号对象被访问，并且有<code>name</code>属性，值为“Adam”。</p>
@@ -308,7 +309,7 @@ kid.say(); <span class="comment">// "Adam"</span>
 kid.name = <span class="string">"Patrick"</span>;
 kid.say(); <span class="comment">// "Patrick"</span>
 </code></pre><p>图6-3展现了这个例子的原型链：</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-3.jpg" alt="图6-3 继承并且给子对象添加属性后的原型链"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-3.jpg" alt="图6-3 继承并且给子对象添加属性后的原型链"></p>
 <p>图6-3 继承并且给子对象添加属性后的原型链</p>
 <p>设定<code>kid.name</code>并没有改变2号对象的<code>name</code>属性，但是却直接在3号对象上添加了自有的<code>name</code>属性。当<code>kid.say()</code>执行时，<code>say()</code>方法会依次在3号对象中找，然后是2号，最后到1号，像前面说的一样。但是这一次在找<code>this.name</code>（和<code>kid.name</code>一样）时很快，因为这个属性在3号对象中就被找到了。</p>
 <p>如果通过<code>delete kid.name</code>的方式移除新添加的属性，那么2号对象的<code>name</code>属性就将被暴露出来并且在查找的时候被找到。</p>
@@ -373,7 +374,7 @@ Parent.prototype.say = <span class="function"><span class="keyword">function</sp
     kid.name; <span class="comment">// "Patrick"</span>
 <span class="keyword">typeof</span> kid.say; <span class="comment">// "undefined"</span>
 </code></pre><p>如果看一下图6-4，就能发现<code>new Child()</code>对象和<code>Parent()</code>之间不再有链接。这是因为<code>Child.prototype</code>根本就没有被使用，它指向一个空对象。使用这种模式，<code>kid</code>拥有了自有的<code>name</code>属性，但是并没有继承<code>say()</code>方法，如果尝试调用它的话会出错。这种继承方式只是一种一次性地将父对象的属性复制为子对象的属性，并没有<code>__proto__</code>链接。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-4.jpg" alt="图6-4 使用借用构造函数模式时没有被关联的原型链"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-4.jpg" alt="图6-4 使用借用构造函数模式时没有被关联的原型链"></p>
 <p>图6-4 使用借用构造函数模式时没有被关联的原型链</p>
 <h3 id="利用借用构造函数模式实现多继承">利用借用构造函数模式实现多继承</h3><p>使用借用构造函数模式，可以通过借用多个构造函数的方式来实现多继承：</p>
 <pre><code><span class="function"><span class="keyword">function</span> <span class="title">Cat</span>(<span class="params"></span>) </span>{
@@ -396,7 +397,7 @@ Parent.prototype.say = <span class="function"><span class="keyword">function</sp
 <span class="keyword">var</span> jane = <span class="keyword">new</span> CatWings();
 <span class="built_in">console</span>.dir(jane);
 </code></pre><p>结果如图6-5，任何重复的属性都会以最后的一个值为准。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-5.jpg" alt="图6-5 在Firebug中查看CatWings对象"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-5.jpg" alt="图6-5 在Firebug中查看CatWings对象"></p>
 <p>图6-5 在Firebug中查看CatWings对象</p>
 <h3 id="借用构造函数的利与弊">借用构造函数的利与弊</h3><p>这种模式的一个明显的弊端就是无法继承原型。如前面所说，原型往往是添加可复用的方法和属性的地方，这样就不用在每个实例中再创建一遍。</p>
 <p>这种模式的一个好处是获得了父对象自有成员的拷贝，不存在子对象意外改写父对象属性的风险。</p>
@@ -432,7 +433,7 @@ kid.say(); <span class="comment">// "Patrick"</span>
 kid.say(); <span class="comment">// "Adam"</span>
 </code></pre><p>跟前一种模式不一样，现在<code>say()</code>方法被正确地继承了。可以看到<code>name</code>也被继承了两次，在删除掉自己的拷贝后，在原型链上的另一个就被暴露出来了。</p>
 <p>图6-6展示了这些对象之间的关系。这些关系有点像图6-3中展示的，但是获得这种关系的方法是不一样的。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-6.jpg" alt="图6-6 除了继承“自己的属性”外，原型链也被保留了"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-6.jpg" alt="图6-6 除了继承“自己的属性”外，原型链也被保留了"></p>
 <p>图6-6 除了继承“自己的属性”外，原型链也被保留了</p>
 <h2 id="类式继承4——共享原型">类式继承4——共享原型</h2><p>不像前一种类式继承模式需要调用两次父构造函数，下面这种模式根本不会涉及到调用父构造函数的问题。</p>
 <p>一般的经验是将可复用的成员放入原型中而不是<code>this</code>。从继承的角度来看，则是任何应该被继承的成员都应该放入原型中。这样你只需要设定子对象的原型和父对象的原型一样即可：</p>
@@ -441,7 +442,7 @@ kid.say(); <span class="comment">// "Adam"</span>
 }
 </code></pre><p>这种模式的原型链很短并且查找很快，因为所有的对象实际上共享着同一个原型。但是这样也有弊端，那就是如果子对象或者在继承关系中的某个地方的任何一个子对象修改这个原型，将影响所有的继承关系中的父对象。（译注：指会影响到所有从这个原型中继承的对象所依赖的共享原型上的成员。）</p>
 <p>如图6-7，子对象和父对象共享同一个原型，都可以访问<code>say()</code>方法。但是，子对象不继承<code>name</code>属性。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-7.jpg" alt="图6-7 （父子对象）共享原型时的关系"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-7.jpg" alt="图6-7 （父子对象）共享原型时的关系"></p>
 <p>图6-7 （父子对象）共享原型时的关系</p>
 <h2 id="类式继承5——临时构造函数">类式继承5——临时构造函数</h2><p>下一种模式通过打断父对象和子对象原型的直接链接解决了共享原型时的问题，同时还从原型链中获得其它的好处。</p>
 <p>下面是这种模式的一种实现方式，<code>F()</code>函数是一个空函数，它充当了子对象和父对象的代理。<code>F()</code>的<code>prototype</code>属性指向父对象的原型。子对象的原型是这个空函数的一个实例：</p>
@@ -451,7 +452,7 @@ kid.say(); <span class="comment">// "Adam"</span>
     C.prototype = <span class="keyword">new</span> F();
 }
 </code></pre><p>这种模式有一种和默认模式（类式继承1）明显不一样的行为，因为在这里子对象只继承原型中的属性（图6-8）。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-8.jpg" alt="图6-8 使用临时（代理）构造函数F()实现类式继承"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-8.jpg" alt="图6-8 使用临时（代理）构造函数F()实现类式继承"></p>
 <p>图6-8 使用临时（代理）构造函数F()实现类式继承</p>
 <p>这种模式通常情况下都是一种很棒的选择，因为原型本来就是存放复用成员的地方。在这种模式中，父构造函数添加到<code>this</code>中的任何成员都不会被继承。</p>
 <p>我们来创建一个子对象并且检查一下它的行为：</p>
@@ -598,7 +599,7 @@ alert(child.name); <span class="comment">// "Papa"</span>
     <span class="keyword">return</span> <span class="keyword">new</span> F();
 }
 </code></pre><p>图6-9展示了使用原型继承时的原型链。这样创建的<code>child</code>总是一个空对象，它没有自有属性但通过原型链（<code>__proto__</code>）拥有父对象的所有功能。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-9.jpg" alt="图6-9 原型继承模式"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-9.jpg" alt="图6-9 原型继承模式"></p>
 <p>图6-9 原型继承模式</p>
 <h3 id="讨论">讨论</h3><p>在原型继承模式中，<code>parent</code>不一定需要使用对象字面量来创建（尽管这是一种常用的方式），也可以使用构造函数来创建。注意，如果你这样做，那么自有属性和原型上的属性都将被继承：</p>
 <pre><code><span class="comment">// 父构造函数</span>
@@ -727,7 +728,7 @@ dad.reads.paper; <span class="comment">// true</span>
     {<span class="string">sugar:</span> <span class="string">"sure!"</span>}
 );
 </code></pre><p>图6-10展示了在Firebug的控制台中用<code>console.dir(cake)</code>展示出来的混元后<code>cake</code>对象的属性。</p>
-<p><img src="../../../../../../images/javascript/Figure/chapter6/6-10.jpg" alt="图6-10 在Firebug中查看cake对象"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-10.jpg" alt="图6-10 在Firebug中查看cake对象"></p>
 <p>图6-10 在Firebug中查看cake对象</p>
 <blockquote>
 <p>如果你习惯了某些将混元作为原生部分的语言，那么你可能期望修改一个或多个父对象时也影响子对象。但在这个实现中这是不会发生的事情。这里我们只是简单地遍历、复制自有属性，并没有与父对象有任何链接。</p>
@@ -903,7 +904,7 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
 
       <section class="site-overview">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/avatar/avatar.jpg" alt="flycloud" itemprop="image"/>
+          <img class="site-author-image" src="http://7xowny.com1.z0.glb.clouddn.com/avatar.jpg" alt="flycloud" itemprop="image"/>
           <p class="site-author-name" itemprop="name">flycloud</p>
         </div>
         <p class="site-description motion-element" itemprop="description">Stay Hungry,Stay Foolish</p>
@@ -999,7 +1000,6 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
 <!--<script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>-->
 <script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
 
-
   
   
   
@@ -1014,7 +1014,7 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
     (function() {
       var ds = document.createElement('script');
       ds.type = 'text/javascript';ds.async = true;
-      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//7xowny.com1.z0.glb.clouddn.com//embed.js';
       ds.charset = 'UTF-8';
       /**(document.getElementsByTagName('head')[0]
       || document.getElementsByTagName('body')[0]).appendChild(ds);**/
@@ -1023,10 +1023,6 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
     })();
   </script>
     
-     
-  	<script src="/js/ua-parser.min.js"></script>
-  	<script src="/js/hook-duoshuo.js"></script>
-  
 
 
     
@@ -1039,10 +1035,10 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
   <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
   
 
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+  <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
+  <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.4" id="motion.global"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/motion_global.js?v=0.4.4" id="motion.global"></script>
 
 
 
@@ -1056,11 +1052,9 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
 
      </ul>
  </nav>
-<!--<link type="text/css" rel="stylesheet" href="/vendors/mmenu/core/css/jquery.mmenu.all.css" />-->
 <link type="text/css" rel="stylesheet" href="http://cdn.bootcss.com/jQuery.mmenu/5.5.3/core/css/jquery.mmenu.all.css" />
 <link type="text/css" rel="stylesheet" href="/vendors/mmenu/css/flyCloudMenu.css" />
-<script type="text/javascript" src="/vendors/mmenu/core/js/jquery.mmenu.min.all.js"></script>
-<!--<script type="text/javascript" src="http://cdn.staticfile.org/jQuery.mmenu/5.5.3/core/js/jquery.mmenu.min.all.js">-->
+<script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/jquery.mmenu.min.all.js"></script>
 
 <script type="text/javascript">
   $(function () {
@@ -1210,7 +1204,7 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
 
 
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/bootstrap/3.2.0/js/scrollspy.js?v=0.4.4" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -1385,7 +1379,7 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
 
 
 <!-- lazyload -->
-<script type="text/javascript" src="/js/lazyload.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery_lazyload/1.9.5/jquery.lazyload.min.js"></script>
 <script type="text/javascript">
     jQuery(function () {
         jQuery("#posts img").lazyload({
