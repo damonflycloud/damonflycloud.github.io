@@ -16,14 +16,15 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+  <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
 <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
-<link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
-
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>-->
 
 
 
@@ -37,7 +38,7 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+  <link rel="shorticon icon" type="image/x-icon" href="http://7xowny.com1.z0.glb.clouddn.com/flycloud.ico?v=0.4.4" />
 
 
 <meta name="description" content="在JavaScript中创建对象是件很容易的事情，直接通过对象字面量或者构造函数就可以。本章将在此基础上介绍一些常用的对象创建模式。
@@ -51,8 +52,8 @@ JavaScript语言本身很简单、直观，也没有其他语言的一些语言�
 JavaScript语言本身很简单、直观，也没有其他语言的一些语言特性：命名空间、模块、包、私有属性以及静态成员。本章将介绍一些常用的模式，以此实现这些语言特性。
 我们将对命名空间、依赖声明、模块模式以及沙箱模式进行初探——它们可以帮助我们更好地组织应用程序的代码，">
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter5/5-1.jpg">
-<meta property="og:image" content="flycloud.me/./Figure/chapter5/5-2.jpg">
-<meta property="og:updated_time" content="2015-12-23T12:46:56.409Z">
+<meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter5/5-2.jpg">
+<meta property="og:updated_time" content="2015-12-26T07:57:27.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第五章 对象创建模式">
 <meta name="twitter:description" content="在JavaScript中创建对象是件很容易的事情，直接通过对象字面量或者构造函数就可以。本章将在此基础上介绍一些常用的对象创建模式。
@@ -239,6 +240,10 @@ JavaScript语言本身很简单、直观，也没有其他语言的一些语言�
             </span>
           
         
+
+         
+             <span id="busuanzi_container_page_pv">  |  阅读量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span>
+         
       </div>
     </header>
 
@@ -451,7 +456,7 @@ specs.price = <span class="string">"free"</span>;
 
 <span class="built_in">console</span>.dir(toy.getSpecs());
 </code></pre><p>在Firebug控制台中打印出来的结果如图5-2：</p>
-<p><img src="./Figure/chapter5/5-2.jpg" alt="图5-2 私有对象被修改了"></p>
+<p><img src="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter5/5-2.jpg" alt="图5-2 私有对象被修改了"></p>
 <p>图5-2 私有对象被修改了</p>
 <p>这个问题有点出乎意料，解决方法就是不要将你想保持私有的对象或者数组的引用传递出去。达到这个目标的一种方法是让<code>getSpecs()</code>返回一个新对象，这个新对象只包含对象的使用者需要的数据。这也是众所周知的“最低授权原则”（Principle of Least Authority，简称POLA），指永远不要给出比真实需要更多的东西。在这个例子中，如果<code>Gadget()</code>的使用者关注它是否适应一个特定的盒子，它只需要知道尺寸即可。所以你应该创建一个<code>getDimensions()</code>，用它返回一个只包含<code>width</code>和<code>height</code>的新对象，而不是把什么都给出去。也就是说，也许你根本不需要实现<code>getSpecs()</code>方法。</p>
 <p>当你需要传递所有的数据时，有另外一种方法，就是使用通用的对象复制函数创建<code>specs</code>对象的一个副本。下一章提供了两个这样的函数——一个叫<code>extend()</code>，它会浅复制一个给定的对象（只复制顶层的成员），另一个叫<code>extendDeep()</code>，它会做深复制，遍历所有的属性和嵌套的属性。</p>
@@ -1037,7 +1042,7 @@ obj.shout(); <span class="comment">// 5</span>
 <p>一个弊端是调试这样写的代码会更困难。你可能知道一个错误出现在某一行，但这一行要做很多的事情。当链式调用的方法中的某一个出现问题而又没报错时，你无法知晓到底是哪一个出问题了。《代码整洁之道》的作者Robert Martion甚至叫这种模式为“train wreck”模式。（译注：直译为“火车事故”，指负面影响比较大。）</p>
 <p>不管怎样，认识这种模式总是好的，当你写的方法没有明显的有意义的返回值时，你就可以返回<code>this</code>。这个模式应用得很广泛，比如jQuery库。如果你去看DOM的API的话，你会发现它也会以这样的形式倾向于链式调用：</p>
 <pre><code><span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(newnode);
-</code></pre><h2 id="method()方法">method()方法</h2><p>JavaScript对于习惯于用类来思考的人来说可能会比较费解，这也是很多开发者希望将JavaScript代码变得更像基于类的语言的原因。其中的一种尝试就是由Douglas Crockford提出来的<code>method()</code>方法。其实，他也承认将JavaScript变得像基于类的语言是不推荐的方法，但不管怎样，这都是一种有意思的模式，你可能会在一些应用中见到。</p>
+</code></pre><h2 id="method方法">method方法</h2><p>JavaScript对于习惯于用类来思考的人来说可能会比较费解，这也是很多开发者希望将JavaScript代码变得更像基于类的语言的原因。其中的一种尝试就是由Douglas Crockford提出来的<code>method()</code>方法。其实，他也承认将JavaScript变得像基于类的语言是不推荐的方法，但不管怎样，这都是一种有意思的模式，你可能会在一些应用中见到。</p>
 <p>使用构造函数就像Java中使用类一样。它也允许你在构造函数体的<code>this</code>中添加实例属性。但是在<code>this</code>中添加方法却是不高效的，因为最终这些方法会在每个实例中被重新创建一次，这样会花费更多的内存。这也是为什么可重用的方法应该被放到构造函数的<code>prototype</code>属性（原型）中的原因。但对很多开发者来说，<code>prototype</code>可能跟个外星人一样陌生，所以你可以通过一个方法将它隐藏起来。</p>
 <blockquote>
 <p>给语言添加一个使用起来更方便的方法一般叫作“语法糖”。在这个例子中，你可以将<code>method()</code>方法称为一个语法糖方法。</p>
@@ -1213,7 +1218,7 @@ a.setName(<span class="string">'Eve'</span>).getName(); <span class="comment">//
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间模式"><span class="nav-number">1.</span> <span class="nav-text">命名空间模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用命名空间函数"><span class="nav-number">1.1.</span> <span class="nav-text">通用命名空间函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖声明"><span class="nav-number">2.</span> <span class="nav-text">依赖声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有属性和方法"><span class="nav-number">3.</span> <span class="nav-text">私有属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#私有成员"><span class="nav-number">3.1.</span> <span class="nav-text">私有成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特权方法"><span class="nav-number">3.2.</span> <span class="nav-text">特权方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有成员失效"><span class="nav-number">3.3.</span> <span class="nav-text">私有成员失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象字面量和私有成员"><span class="nav-number">3.4.</span> <span class="nav-text">对象字面量和私有成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型和私有成员"><span class="nav-number">3.5.</span> <span class="nav-text">原型和私有成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将私有函数暴露为公有方法"><span class="nav-number">3.6.</span> <span class="nav-text">将私有函数暴露为公有方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块模式"><span class="nav-number">4.</span> <span class="nav-text">模块模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暴露模块模式"><span class="nav-number">4.1.</span> <span class="nav-text">暴露模块模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建构造函数的模块"><span class="nav-number">4.2.</span> <span class="nav-text">创建构造函数的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在模块中引入全局上下文"><span class="nav-number">4.3.</span> <span class="nav-text">在模块中引入全局上下文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#沙箱模式"><span class="nav-number">5.</span> <span class="nav-text">沙箱模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局构造函数"><span class="nav-number">5.1.</span> <span class="nav-text">全局构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加模块"><span class="nav-number">5.2.</span> <span class="nav-text">添加模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现构造函数"><span class="nav-number">5.3.</span> <span class="nav-text">实现构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态成员"><span class="nav-number">6.</span> <span class="nav-text">静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公有静态成员"><span class="nav-number">6.1.</span> <span class="nav-text">公有静态成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有静态成员"><span class="nav-number">6.2.</span> <span class="nav-text">私有静态成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象常量"><span class="nav-number">7.</span> <span class="nav-text">对象常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式调用模式"><span class="nav-number">8.</span> <span class="nav-text">链式调用模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链式调用模式的利弊"><span class="nav-number">8.1.</span> <span class="nav-text">链式调用模式的利弊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method()方法"><span class="nav-number">9.</span> <span class="nav-text">method()方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#命名空间模式"><span class="nav-number">1.</span> <span class="nav-text">命名空间模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通用命名空间函数"><span class="nav-number">1.1.</span> <span class="nav-text">通用命名空间函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖声明"><span class="nav-number">2.</span> <span class="nav-text">依赖声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#私有属性和方法"><span class="nav-number">3.</span> <span class="nav-text">私有属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#私有成员"><span class="nav-number">3.1.</span> <span class="nav-text">私有成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特权方法"><span class="nav-number">3.2.</span> <span class="nav-text">特权方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有成员失效"><span class="nav-number">3.3.</span> <span class="nav-text">私有成员失效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对象字面量和私有成员"><span class="nav-number">3.4.</span> <span class="nav-text">对象字面量和私有成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原型和私有成员"><span class="nav-number">3.5.</span> <span class="nav-text">原型和私有成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#将私有函数暴露为公有方法"><span class="nav-number">3.6.</span> <span class="nav-text">将私有函数暴露为公有方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#模块模式"><span class="nav-number">4.</span> <span class="nav-text">模块模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#暴露模块模式"><span class="nav-number">4.1.</span> <span class="nav-text">暴露模块模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建构造函数的模块"><span class="nav-number">4.2.</span> <span class="nav-text">创建构造函数的模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在模块中引入全局上下文"><span class="nav-number">4.3.</span> <span class="nav-text">在模块中引入全局上下文</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#沙箱模式"><span class="nav-number">5.</span> <span class="nav-text">沙箱模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局构造函数"><span class="nav-number">5.1.</span> <span class="nav-text">全局构造函数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加模块"><span class="nav-number">5.2.</span> <span class="nav-text">添加模块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现构造函数"><span class="nav-number">5.3.</span> <span class="nav-text">实现构造函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#静态成员"><span class="nav-number">6.</span> <span class="nav-text">静态成员</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#公有静态成员"><span class="nav-number">6.1.</span> <span class="nav-text">公有静态成员</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#私有静态成员"><span class="nav-number">6.2.</span> <span class="nav-text">私有静态成员</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象常量"><span class="nav-number">7.</span> <span class="nav-text">对象常量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#链式调用模式"><span class="nav-number">8.</span> <span class="nav-text">链式调用模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#链式调用模式的利弊"><span class="nav-number">8.1.</span> <span class="nav-text">链式调用模式的利弊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#method方法"><span class="nav-number">9.</span> <span class="nav-text">method方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">10.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -1235,11 +1240,11 @@ a.setName(<span class="string">'Eve'</span>).getName(); <span class="comment">//
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">flycloud</span>
+  <span class="author" itemprop="copyrightHolder">flycloud : Stay Hungry,Stay Foolish</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  作者: <a class="theme-link" href="http://flycloud.me">flycloud</a> 
 </div>
 
 <div class="theme-info">
@@ -1249,6 +1254,9 @@ a.setName(<span class="string">'Eve'</span>).getName(); <span class="comment">//
   </a>
 </div>
 
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人次
+</span>
 
 
         </div>
@@ -1288,11 +1296,12 @@ a.setName(<span class="string">'Eve'</span>).getName(); <span class="comment">//
     
   
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/fancy-box.js?v=0.4.4"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/helpers.js?v=0.4.4"></script>
+
   
 
   <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
@@ -1460,6 +1469,9 @@ a.setName(<span class="string">'Eve'</span>).getName(); <span class="comment">//
 </script>
 
 
+
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script async src="http://7xowny.com1.z0.glb.clouddn.com/busuanzi.pure.mini.js"></script>
 
 
 

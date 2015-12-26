@@ -1,8 +1,13 @@
 .test {
   border: 10px;
 }
-.main-inner .content {
-  width: 730px;
+.logo-line-before,
+.logo-line-after {
+  width: 100%;
+}
+.logo-line-before i,
+.logo-line-after i {
+  height: 3px;
 }
 h2,
 h3,
@@ -40,41 +45,6 @@ ul li {
 .header-inner {
   margin-bottom: 80px;
   padding: 40px 0;
-mobile()
-}
-.site-meta {
-  float: left;
-  margin-left: -20px;
-mobile()
-}
-.site-meta .brand {
-  padding: 2px 1px;
-  color: $black-deep;
-  background: none;
-mobile()
-}
-.site-meta .logo {
-  display: none;
-}
-.site-meta .site-title {
-  font-size: 24px;
-  font-weight: bolder;
-mobile()
-}
-.logo-line-before,
-.logo-line-after {
-  display: block;
-  overflow: hidden;
-  margin: 0 auto;
-  width: 75%;
-mobile()
-}
-.logo-line-before i,
-.logo-line-after i {
-  position: relative;
-  display: block;
-  height: 4px;
-  background: $black-deep;
 mobile()
 }
 .use-motion .logo-line-before i {
@@ -201,11 +171,45 @@ mobile()
   color: $grey-dim;
 }
 .footer-inner {
-  margin: 0 auto;
-mobile()
+  margin: 20px auto;
+  text-align: center;
+}
+.powered-by {
+  display: none;
+}
+.powered-by,
+.theme-info {
+  display: none;
 }
 .full-image.full-image.full-image {
   max-width: 100%;
   width: auto;
   margin: 0;
+}
+.sidebar {
+  background-color: #f5f5f5;
+}
+.sidebar a {
+  color: #000;
+}
+.sidebar a:hover {
+  color: #87daff;
+}
+.sidebar-nav li:hover {
+  color: #000;
+}
+.post-toc ol a {
+  color: #000;
+}
+.post-toc ol a:hover {
+  color: #87daff;
+}
+.site-description {
+  color: #000;
+}
+@media (max-width: 767px) {
+  .pagination {
+    margin: 80px 10px 0;
+    text-align: center;
+  }
 }

@@ -16,14 +16,15 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+  <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
 <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
-<link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
-
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>-->
 
 
 
@@ -37,7 +38,7 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+  <link rel="shorticon icon" type="image/x-icon" href="http://7xowny.com1.z0.glb.clouddn.com/flycloud.ico?v=0.4.4" />
 
 
 <meta name="description" content="在本书的前面几章中，我们主要关注了JavaScript核心（ECMAScript），并没有涉及太多关于在浏览器中使用JavaScript的内容。在本章，我们将探索一些在浏览器环境中的模式，因为这是最常见的JavaScript程序环境。浏览器脚本编程也是大部分不喜欢JavaScript的人对这门语言的认知。这当然是可以理解，因为在浏览器中有非常多不一致的宿主对象和DOM实现。很明显，任何能够减轻客户">
@@ -48,7 +49,7 @@
 <meta property="og:description" content="在本书的前面几章中，我们主要关注了JavaScript核心（ECMAScript），并没有涉及太多关于在浏览器中使用JavaScript的内容。在本章，我们将探索一些在浏览器环境中的模式，因为这是最常见的JavaScript程序环境。浏览器脚本编程也是大部分不喜欢JavaScript的人对这门语言的认知。这当然是可以理解，因为在浏览器中有非常多不一致的宿主对象和DOM实现。很明显，任何能够减轻客户">
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter8/8-1.jpg">
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter8/8-2.jpg">
-<meta property="og:updated_time" content="2015-12-23T15:15:09.236Z">
+<meta property="og:updated_time" content="2015-12-24T13:04:24.108Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第八章 DOM和浏览器中的模式">
 <meta name="twitter:description" content="在本书的前面几章中，我们主要关注了JavaScript核心（ECMAScript），并没有涉及太多关于在浏览器中使用JavaScript的内容。在本章，我们将探索一些在浏览器环境中的模式，因为这是最常见的JavaScript程序环境。浏览器脚本编程也是大部分不喜欢JavaScript的人对这门语言的认知。这当然是可以理解，因为在浏览器中有非常多不一致的宿主对象和DOM实现。很明显，任何能够减轻客户">
@@ -233,6 +234,10 @@
             </span>
           
         
+
+         
+             <span id="busuanzi_container_page_pv">  |  阅读量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span>
+         
       </div>
     </header>
 
@@ -470,7 +475,7 @@ src = <span class="keyword">e</span>.target || <span class="keyword">e</span>.sr
 <h2 id="长时间运行的脚本">长时间运行的脚本</h2><p>你可能注意到过，有时候浏览器会提示脚本运行时间过长，询问用户是否要停止执行。不管应用有多复杂，你都不希望这种情况发生在自己的应用中。</p>
 <p>同时，如果脚本运行时间太长的话，浏览器的UI将变得没有响应，用户不能点击任何东西。这是一种很差的用户体验，应该尽量避免。</p>
 <p>在JavaScript中没有线程，但你可以在浏览器中使用<code>setTimeout()</code>来模拟，或者在现代浏览器中使用web workers。</p>
-<h3 id="setTimeout()">setTimeout()</h3><p>它的思想是将一大堆工作分解成为一小段一小段，然后每隔1毫秒运行一段。使用1毫秒的延迟会导致整个任务完成得更慢，但是用户界面会保持可响应状态，用户会觉得浏览器没有失控，觉得更舒服。</p>
+<h3 id="setTimeout">setTimeout</h3><p>它的思想是将一大堆工作分解成为一小段一小段，然后每隔1毫秒运行一段。使用1毫秒的延迟会导致整个任务完成得更慢，但是用户界面会保持可响应状态，用户会觉得浏览器没有失控，觉得更舒服。</p>
 <blockquote>
 <p>1毫秒（甚至0毫秒）的延迟执行命令在实际运行的时候会延迟更多，这取决于浏览器和操作系统。设定0毫秒的延迟并不意味着马上执行，而是指“尽快执行”。比如，在IE中，最短的延迟是15毫秒。</p>
 </blockquote>
@@ -653,7 +658,7 @@ clientPlay: <span class="function"><span class="keyword">function</span> (<span 
 </code></pre><p>如你所见，JSONP中的回调函数必须是公开的并且全局可访问的函数，它并不一定要是全局函数，也可以是一个全局对象的方法。如果没有错误发生，服务器将会返回一个函数调用，像这样：</p>
 <pre><code>ttt.serverPlay(<span class="number">3</span>);
 </code></pre><p>这里的<code>3</code>是指3号单元格是服务器要下棋的位置。在这种情况下，数据非常简单，甚至都不需要使用JSON格式，只需要一个简单的值就可以了。</p>
-<h3 id="框架（frame）和图片信标(image_beacon)">框架（frame）和图片信标(image beacon)</h3><p>另外一种做远程脚本编程的方式是使用框架。你可以使用JavaScript来创建框架并改变它的<code>src</code>属性（URL），新URL的页面中可以包含数据和函数调用来更新调用者，也就是框架之外的父页面。</p>
+<h3 id="框架[frame]和图片信标[image_beacon]">框架[frame]和图片信标[image beacon]</h3><p>另外一种做远程脚本编程的方式是使用框架。你可以使用JavaScript来创建框架并改变它的<code>src</code>属性（URL），新URL的页面中可以包含数据和函数调用来更新调用者，也就是框架之外的父页面。</p>
 <p>远程脚本编程中最最简单的情况是你只需要传递一点数据给服务器，而并不需要服务器的响应内容。在这种情况下，你可以创建一个新的图片，然后将它的<code>src</code>指向服务器的脚本：</p>
 <pre><code><span class="keyword">new</span> Image().src = <span class="string">"http://example.org/some/page.php"</span>;
 </code></pre><p>这种模式叫作图片信标，当你想发送一些数据给服务器记录时很有用，比如做访问统计。因为信标的响应对你来说完全是没有用的，所以通常的做法（不推荐）是让服务器返回一个1x1的GIF图片。更好的做法是让服务器返回一个<code>&quot;204 No Content&quot;</code>HTTP响应。这意味着返回给客户端的响应只有响应头（header）而没有响应体（body）。</p>
@@ -1085,7 +1090,7 @@ obj.data = <span class="string">"preloadme.js"</span>;
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分离"><span class="nav-number">1.</span> <span class="nav-text">分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM编程"><span class="nav-number">2.</span> <span class="nav-text">DOM编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM访问"><span class="nav-number">2.1.</span> <span class="nav-text">DOM访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作"><span class="nav-number">2.2.</span> <span class="nav-text">DOM操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">3.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理"><span class="nav-number">3.1.</span> <span class="nav-text">事件处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委托"><span class="nav-number">3.2.</span> <span class="nav-text">事件委托</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长时间运行的脚本"><span class="nav-number">4.</span> <span class="nav-text">长时间运行的脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setTimeout()"><span class="nav-number">4.1.</span> <span class="nav-text">setTimeout()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web_Workers"><span class="nav-number">4.2.</span> <span class="nav-text">Web Workers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程脚本编程"><span class="nav-number">5.</span> <span class="nav-text">远程脚本编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">5.1.</span> <span class="nav-text">XMLHttpRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">5.2.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP示例：井字棋"><span class="nav-number">5.2.1.</span> <span class="nav-text">JSONP示例：井字棋</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#框架（frame）和图片信标(image_beacon)"><span class="nav-number">5.3.</span> <span class="nav-text">框架（frame）和图片信标(image beacon)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署JavaScript"><span class="nav-number">6.</span> <span class="nav-text">部署JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#合并脚本"><span class="nav-number">6.1.</span> <span class="nav-text">合并脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩代码"><span class="nav-number">6.2.</span> <span class="nav-text">压缩代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存头"><span class="nav-number">6.3.</span> <span class="nav-text">缓存头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CDN"><span class="nav-number">6.4.</span> <span class="nav-text">使用CDN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载策略"><span class="nav-number">7.</span> <span class="nav-text">加载策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#script元素的位置"><span class="nav-number">7.1.</span> <span class="nav-text">script元素的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP分块"><span class="nav-number">7.2.</span> <span class="nav-text">HTTP分块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态script元素实现非阻塞下载"><span class="nav-number">7.3.</span> <span class="nav-text">动态script元素实现非阻塞下载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入script元素"><span class="nav-number">7.3.1.</span> <span class="nav-text">插入script元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟加载"><span class="nav-number">7.4.</span> <span class="nav-text">延迟加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按需加载"><span class="nav-number">7.5.</span> <span class="nav-text">按需加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预加载JavaScript"><span class="nav-number">7.6.</span> <span class="nav-text">预加载JavaScript</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">8.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#分离"><span class="nav-number">1.</span> <span class="nav-text">分离</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DOM编程"><span class="nav-number">2.</span> <span class="nav-text">DOM编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM访问"><span class="nav-number">2.1.</span> <span class="nav-text">DOM访问</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DOM操作"><span class="nav-number">2.2.</span> <span class="nav-text">DOM操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#事件"><span class="nav-number">3.</span> <span class="nav-text">事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#事件处理"><span class="nav-number">3.1.</span> <span class="nav-text">事件处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件委托"><span class="nav-number">3.2.</span> <span class="nav-text">事件委托</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#长时间运行的脚本"><span class="nav-number">4.</span> <span class="nav-text">长时间运行的脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#setTimeout"><span class="nav-number">4.1.</span> <span class="nav-text">setTimeout</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Web_Workers"><span class="nav-number">4.2.</span> <span class="nav-text">Web Workers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#远程脚本编程"><span class="nav-number">5.</span> <span class="nav-text">远程脚本编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#XMLHttpRequest"><span class="nav-number">5.1.</span> <span class="nav-text">XMLHttpRequest</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">5.2.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#JSONP示例：井字棋"><span class="nav-number">5.2.1.</span> <span class="nav-text">JSONP示例：井字棋</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#框架[frame]和图片信标[image_beacon]"><span class="nav-number">5.3.</span> <span class="nav-text">框架[frame]和图片信标[image beacon]</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署JavaScript"><span class="nav-number">6.</span> <span class="nav-text">部署JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#合并脚本"><span class="nav-number">6.1.</span> <span class="nav-text">合并脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#压缩代码"><span class="nav-number">6.2.</span> <span class="nav-text">压缩代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存头"><span class="nav-number">6.3.</span> <span class="nav-text">缓存头</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用CDN"><span class="nav-number">6.4.</span> <span class="nav-text">使用CDN</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加载策略"><span class="nav-number">7.</span> <span class="nav-text">加载策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#script元素的位置"><span class="nav-number">7.1.</span> <span class="nav-text">script元素的位置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP分块"><span class="nav-number">7.2.</span> <span class="nav-text">HTTP分块</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态script元素实现非阻塞下载"><span class="nav-number">7.3.</span> <span class="nav-text">动态script元素实现非阻塞下载</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#插入script元素"><span class="nav-number">7.3.1.</span> <span class="nav-text">插入script元素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟加载"><span class="nav-number">7.4.</span> <span class="nav-text">延迟加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#按需加载"><span class="nav-number">7.5.</span> <span class="nav-text">按需加载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#预加载JavaScript"><span class="nav-number">7.6.</span> <span class="nav-text">预加载JavaScript</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">8.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -1107,11 +1112,11 @@ obj.data = <span class="string">"preloadme.js"</span>;
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">flycloud</span>
+  <span class="author" itemprop="copyrightHolder">flycloud : Stay Hungry,Stay Foolish</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  作者: <a class="theme-link" href="http://flycloud.me">flycloud</a> 
 </div>
 
 <div class="theme-info">
@@ -1121,6 +1126,9 @@ obj.data = <span class="string">"preloadme.js"</span>;
   </a>
 </div>
 
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人次
+</span>
 
 
         </div>
@@ -1160,11 +1168,12 @@ obj.data = <span class="string">"preloadme.js"</span>;
     
   
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/fancy-box.js?v=0.4.4"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/helpers.js?v=0.4.4"></script>
+
   
 
   <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
@@ -1332,6 +1341,9 @@ obj.data = <span class="string">"preloadme.js"</span>;
 </script>
 
 
+
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script async src="http://7xowny.com1.z0.glb.clouddn.com/busuanzi.pure.mini.js"></script>
 
 
 

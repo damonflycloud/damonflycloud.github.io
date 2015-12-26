@@ -186,7 +186,7 @@ th {
 body {
   position: relative;
   font-family: Lato, 'Open Sans', 'Droid Sans', 'Source Sans Pro', 'Helvetica Neue', 'Segoe UI', Verdana, Tahoma, Arial, 'Hiragino Sans GB', 'Microsoft YaHei', 'WenQuanYi Micro Hei', sans-serif, sans-serif, sans-serif;
-  font-size: 16px;
+  font-size: 15px;
   line-height: 1.8;
   color: #555;
   background: #fff;
@@ -845,7 +845,7 @@ body {
   width: 960px;
 }
 .one-column .header-inner {
-  width: 700px;
+  width: 710px;
 }
 .main {
   padding-bottom: 150px;
@@ -855,10 +855,10 @@ body {
   width: 960px;
 }
 .one-column .main-inner {
-  width: 700px;
+  width: 710px;
 }
 .main-inner .content {
-  width: 700px;
+  width: 710px;
 }
 .footer {
   position: absolute;
@@ -872,7 +872,7 @@ body {
   width: 960px;
 }
 .one-column .footer-inner {
-  width: 700px;
+  width: 710px;
 }
 .headband {
   height: 3px;
@@ -891,6 +891,7 @@ body {
 @media (max-width: 767px) {
   .site-meta {
     text-align: center;
+    float: none;
   }
 }
 .brand {
@@ -1150,7 +1151,7 @@ body {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #fa11dd;
+  background: #3430c4;
 }
 .sidebar-nav {
   margin: 0;
@@ -2041,6 +2042,7 @@ ul li {
 @media (max-width: 767px) {
   .site-meta {
     margin-left: 10px;
+    float: none;
   }
 }
 .site-meta .brand {
@@ -2075,7 +2077,7 @@ ul li {
 @media (max-width: 767px) {
   .logo-line-before,
   .logo-line-after {
-    display: none;
+    width: 40%;
   }
 }
 .logo-line-before i,

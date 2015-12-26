@@ -16,14 +16,15 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+  <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
 <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
-<link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
-
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>-->
 
 
 
@@ -37,7 +38,7 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+  <link rel="shorticon icon" type="image/x-icon" href="http://7xowny.com1.z0.glb.clouddn.com/flycloud.ico?v=0.4.4" />
 
 
 <meta name="description" content="本章将概要介绍一些编写高质量JavaScript的最佳实践、模式和习惯，比如避免全局变量、使用单var声明、预缓存循环中的length、遵守编码约定等等。本章还包括一些编程习惯，这些习惯跟具体的代码关系不大，而是更多关注代码创建的总体过程，包括撰写API文档、同事评审以及使用JSLint。这些习惯和最佳实践可以帮助你写出更好更易读和可维护性更好的代码，当几个月或数年后你再重读你的代码时，就会深有体">
@@ -47,7 +48,7 @@
 <meta property="og:site_name" content="FlyCloud-Blog">
 <meta property="og:description" content="本章将概要介绍一些编写高质量JavaScript的最佳实践、模式和习惯，比如避免全局变量、使用单var声明、预缓存循环中的length、遵守编码约定等等。本章还包括一些编程习惯，这些习惯跟具体的代码关系不大，而是更多关注代码创建的总体过程，包括撰写API文档、同事评审以及使用JSLint。这些习惯和最佳实践可以帮助你写出更好更易读和可维护性更好的代码，当几个月或数年后你再重读你的代码时，就会深有体">
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter2/2-1.jpg">
-<meta property="og:updated_time" content="2015-12-23T12:45:48.670Z">
+<meta property="og:updated_time" content="2015-12-24T13:02:18.549Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第二章 概要">
 <meta name="twitter:description" content="本章将概要介绍一些编写高质量JavaScript的最佳实践、模式和习惯，比如避免全局变量、使用单var声明、预缓存循环中的length、遵守编码约定等等。本章还包括一些编程习惯，这些习惯跟具体的代码关系不大，而是更多关注代码创建的总体过程，包括撰写API文档、同事评审以及使用JSLint。这些习惯和最佳实践可以帮助你写出更好更易读和可维护性更好的代码，当几个月或数年后你再重读你的代码时，就会深有体">
@@ -243,6 +244,10 @@
             </span>
           
         
+
+         
+             <span id="busuanzi_container_page_pv">  |  阅读量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span>
+         
       </div>
     </header>
 
@@ -575,7 +580,7 @@ default:
     <span class="comment">// 代码块会执行…</span>
 }
 </code></pre><p>有一种观点认为当<code>==</code>够用的时候就不必使用<code>===</code>。比如，当你知道<code>typeof</code>的返回值是一个字符串，就不必使用全等运算符。但JSLint却要求使用全等运算符，这无疑会提高代码风格的一致性，并减少了阅读代码时的思考量（“这里使用<code>==</code>是故意的还是无意的？”）。</p>
-<h3 id="避免使用eval()">避免使用eval()</h3><p>当你想使用<code>eval()</code>的时候，不要忘了那句话“<code>eval()</code> is evil”（<code>eval()</code>是魔鬼）。这个函数的参数是一个字符串，它会将传入的字符串作为JavaScript代码执行。如果用来解决问题的代码是事先知道的（在运行之前），则没有理由使用<code>eval()</code>。如果需要在运行时动态生成并执行代码，那一般都会有更好的方式达到同样的目的，而非一定要使用<code>eval()</code>。例如，访问动态属性时可以使用方括号：</p>
+<h3 id="避免使用eval方法">避免使用eval方法</h3><p>当你想使用<code>eval()</code>的时候，不要忘了那句话“<code>eval()</code> is evil”（<code>eval()</code>是魔鬼）。这个函数的参数是一个字符串，它会将传入的字符串作为JavaScript代码执行。如果用来解决问题的代码是事先知道的（在运行之前），则没有理由使用<code>eval()</code>。如果需要在运行时动态生成并执行代码，那一般都会有更好的方式达到同样的目的，而非一定要使用<code>eval()</code>。例如，访问动态属性时可以使用方括号：</p>
 <pre><code>// 反模式
 var <span class="keyword">property</span><span class="title"> </span>= <span class="string">"name"</span>;
 alert(eval(<span class="string">"obj."</span> + <span class="keyword">property</span><span class="title"></span>));
@@ -623,7 +628,7 @@ jsstring = <span class="string">"var trois = 3; console.log(trois);"</span>;
     <span class="keyword">var</span> local = <span class="number">1</span>;
     <span class="function"><span class="keyword">Function</span><span class="params">(<span class="string">"console.log(typeof local);"</span>)</span><span class="params">()</span></span>; <span class="comment">// 打印出 undefined</span>
 }());
-</code></pre><h2 id="使用parseInt()进行数字转换">使用parseInt()进行数字转换</h2><p>你可以使用<code>parseInt()</code>将字符串转换为数字。函数的第二个参数是进制参数，这个参数应该被指定，但却通常被省略。当字符串以0为前缀时转换就会出问题，例如，在表单中输入日期的一个字段。ECMAScript3中以0为前缀的字符串会被当作八进制数处理，这一点在ES5中已经有了改变。为了避免转换类型不一致而导致的意外结果，应当总是指定第二个参数：</p>
+</code></pre><h2 id="使用parseInt进行数字转换">使用parseInt进行数字转换</h2><p>你可以使用<code>parseInt()</code>将字符串转换为数字。函数的第二个参数是进制参数，这个参数应该被指定，但却通常被省略。当字符串以0为前缀时转换就会出问题，例如，在表单中输入日期的一个字段。ECMAScript3中以0为前缀的字符串会被当作八进制数处理，这一点在ES5中已经有了改变。为了避免转换类型不一致而导致的意外结果，应当总是指定第二个参数：</p>
 <pre><code>var <span class="property">month</span> = <span class="string">"06"</span>,
     <span class="property">year</span> = <span class="string">"09"</span>;
 <span class="property">month</span> = parseInt(<span class="property">month</span>, <span class="number">10</span>);
@@ -1101,7 +1106,7 @@ YAHOO.util.CustomEvent(E,<span class="keyword">this</span>,<span class="literal"
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写可维护的代码"><span class="nav-number">1.</span> <span class="nav-text">编写可维护的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少全局变量"><span class="nav-number">2.</span> <span class="nav-text">减少全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量的问题"><span class="nav-number">2.1.</span> <span class="nav-text">全局变量的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忘记var时的副作用"><span class="nav-number">2.2.</span> <span class="nav-text">忘记var时的副作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问全局对象"><span class="nav-number">2.3.</span> <span class="nav-text">访问全局对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单var模式"><span class="nav-number">2.4.</span> <span class="nav-text">单var模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明提前：分散的var带来的问题"><span class="nav-number">2.5.</span> <span class="nav-text">声明提前：分散的var带来的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环"><span class="nav-number">3.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in循环"><span class="nav-number">4.</span> <span class="nav-text">for-in循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（不）扩充内置原型"><span class="nav-number">5.</span> <span class="nav-text">（不）扩充内置原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch模式"><span class="nav-number">6.</span> <span class="nav-text">switch模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免隐式类型转换"><span class="nav-number">7.</span> <span class="nav-text">避免隐式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免使用eval()"><span class="nav-number">7.1.</span> <span class="nav-text">避免使用eval()</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用parseInt()进行数字转换"><span class="nav-number">8.</span> <span class="nav-text">使用parseInt()进行数字转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码规范"><span class="nav-number">9.</span> <span class="nav-text">代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缩进"><span class="nav-number">9.1.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#花括号"><span class="nav-number">9.2.</span> <span class="nav-text">花括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左花括号的位置"><span class="nav-number">9.3.</span> <span class="nav-text">左花括号的位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规范"><span class="nav-number">10.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数命名中的大小写"><span class="nav-number">10.1.</span> <span class="nav-text">构造函数命名中的大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词分隔"><span class="nav-number">10.2.</span> <span class="nav-text">单词分隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他命名风格"><span class="nav-number">10.3.</span> <span class="nav-text">其他命名风格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写注释"><span class="nav-number">11.</span> <span class="nav-text">写注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写API文档"><span class="nav-number">12.</span> <span class="nav-text">写API文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：YUIDoc"><span class="nav-number">12.1.</span> <span class="nav-text">示例：YUIDoc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写易读的代码"><span class="nav-number">13.</span> <span class="nav-text">编写易读的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同事评审（Peer_Reviews）"><span class="nav-number">14.</span> <span class="nav-text">同事评审（Peer Reviews）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布时的代码压缩（Minify）"><span class="nav-number">15.</span> <span class="nav-text">发布时的代码压缩（Minify）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行JSLint"><span class="nav-number">16.</span> <span class="nav-text">运行JSLint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">17.</span> <span class="nav-text">小结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#编写可维护的代码"><span class="nav-number">1.</span> <span class="nav-text">编写可维护的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#减少全局变量"><span class="nav-number">2.</span> <span class="nav-text">减少全局变量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#全局变量的问题"><span class="nav-number">2.1.</span> <span class="nav-text">全局变量的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#忘记var时的副作用"><span class="nav-number">2.2.</span> <span class="nav-text">忘记var时的副作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#访问全局对象"><span class="nav-number">2.3.</span> <span class="nav-text">访问全局对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单var模式"><span class="nav-number">2.4.</span> <span class="nav-text">单var模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明提前：分散的var带来的问题"><span class="nav-number">2.5.</span> <span class="nav-text">声明提前：分散的var带来的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for循环"><span class="nav-number">3.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for-in循环"><span class="nav-number">4.</span> <span class="nav-text">for-in循环</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（不）扩充内置原型"><span class="nav-number">5.</span> <span class="nav-text">（不）扩充内置原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#switch模式"><span class="nav-number">6.</span> <span class="nav-text">switch模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#避免隐式类型转换"><span class="nav-number">7.</span> <span class="nav-text">避免隐式类型转换</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#避免使用eval方法"><span class="nav-number">7.1.</span> <span class="nav-text">避免使用eval方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用parseInt进行数字转换"><span class="nav-number">8.</span> <span class="nav-text">使用parseInt进行数字转换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码规范"><span class="nav-number">9.</span> <span class="nav-text">代码规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#缩进"><span class="nav-number">9.1.</span> <span class="nav-text">缩进</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#花括号"><span class="nav-number">9.2.</span> <span class="nav-text">花括号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#左花括号的位置"><span class="nav-number">9.3.</span> <span class="nav-text">左花括号的位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#命名规范"><span class="nav-number">10.</span> <span class="nav-text">命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造函数命名中的大小写"><span class="nav-number">10.1.</span> <span class="nav-text">构造函数命名中的大小写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单词分隔"><span class="nav-number">10.2.</span> <span class="nav-text">单词分隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他命名风格"><span class="nav-number">10.3.</span> <span class="nav-text">其他命名风格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写注释"><span class="nav-number">11.</span> <span class="nav-text">写注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写API文档"><span class="nav-number">12.</span> <span class="nav-text">写API文档</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#示例：YUIDoc"><span class="nav-number">12.1.</span> <span class="nav-text">示例：YUIDoc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写易读的代码"><span class="nav-number">13.</span> <span class="nav-text">编写易读的代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#同事评审（Peer_Reviews）"><span class="nav-number">14.</span> <span class="nav-text">同事评审（Peer Reviews）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#发布时的代码压缩（Minify）"><span class="nav-number">15.</span> <span class="nav-text">发布时的代码压缩（Minify）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行JSLint"><span class="nav-number">16.</span> <span class="nav-text">运行JSLint</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小结"><span class="nav-number">17.</span> <span class="nav-text">小结</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -1123,11 +1128,11 @@ YAHOO.util.CustomEvent(E,<span class="keyword">this</span>,<span class="literal"
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">flycloud</span>
+  <span class="author" itemprop="copyrightHolder">flycloud : Stay Hungry,Stay Foolish</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  作者: <a class="theme-link" href="http://flycloud.me">flycloud</a> 
 </div>
 
 <div class="theme-info">
@@ -1137,6 +1142,9 @@ YAHOO.util.CustomEvent(E,<span class="keyword">this</span>,<span class="literal"
   </a>
 </div>
 
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人次
+</span>
 
 
         </div>
@@ -1176,11 +1184,12 @@ YAHOO.util.CustomEvent(E,<span class="keyword">this</span>,<span class="literal"
     
   
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/fancy-box.js?v=0.4.4"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/helpers.js?v=0.4.4"></script>
+
   
 
   <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
@@ -1348,6 +1357,9 @@ YAHOO.util.CustomEvent(E,<span class="keyword">this</span>,<span class="literal"
 </script>
 
 
+
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script async src="http://7xowny.com1.z0.glb.clouddn.com/busuanzi.pure.mini.js"></script>
 
 
 

@@ -16,14 +16,15 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+  <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.css?v=2.1.5"/>
 
 
 
 
 <link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
-<link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
-
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>
+<!--<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>-->
 
 
 
@@ -37,7 +38,7 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.4" />
+  <link rel="shorticon icon" type="image/x-icon" href="http://7xowny.com1.z0.glb.clouddn.com/flycloud.ico?v=0.4.4" />
 
 
 <meta name="description" content="代码复用是一个既重要又有趣的话题。如果你面对自己或者别人已经写好的代码，而这些代码又是经过测试的、可维护的、可扩展的、有文档的，这时候你只想写尽量少且可以被复用的代码就是一个再自然不过的想法。
@@ -58,7 +59,7 @@
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-8.jpg">
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-9.jpg">
 <meta property="og:image" content="http://7xpdjj.com1.z0.glb.clouddn.com/javascript/Figure/chapter6/6-10.jpg">
-<meta property="og:updated_time" content="2015-12-23T12:46:56.840Z">
+<meta property="og:updated_time" content="2015-12-24T12:57:32.136Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第六章 代码复用模式">
 <meta name="twitter:description" content="代码复用是一个既重要又有趣的话题。如果你面对自己或者别人已经写好的代码，而这些代码又是经过测试的、可维护的、可扩展的、有文档的，这时候你只想写尽量少且可以被复用的代码就是一个再自然不过的想法。
@@ -244,6 +245,10 @@
             </span>
           
         
+
+         
+             <span id="busuanzi_container_page_pv">  |  阅读量 <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span> 次</span>
+         
       </div>
     </header>
 
@@ -792,7 +797,7 @@ yetanother.<span class="keyword">method</span>(one.say); // <span class="string"
 twosay<span class="list">(<span class="quoted">'yo</span>')</span><span class="comment">; // "yo, another object"</span>
 </code></pre><p>正如你看到的，尽管<code>twosay()</code>是作为一个全局函数被创建的，但<code>this</code>并没有指向全局对象，而是指向了通过<code>bind()</code>传入的对象<code>two</code>。不论如何调用<code>twosay()</code>，<code>this</code>将始终指向<code>two</code>。</p>
 <p>绑定是奢侈的，你需要付出的代价是一个额外的闭包。</p>
-<h3 id="Function-prototype-bind()">Function.prototype.bind()</h3><p>ECMAScript5在<code>Function.prototype</code>中添加了一个方法叫<code>bind()</code>，使用时和<code>apply()</code>/<code>call()</code>一样简单。所以你可以这样写：</p>
+<h3 id="bind()方法">bind()方法</h3><p>ECMAScript5在<code>Function.prototype</code>中添加了一个方法叫<code>bind()</code>即Function.prototype.bind()，使用时和<code>apply()</code>/<code>call()</code>一样简单()。所以你可以这样写：</p>
 <pre><code>var newFunc = obj.someFunc.bind(myobj, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>);
 </code></pre><p>这意味着将<code>someFunc()</code>和<code>myobj</code>绑定了,并且还传入了<code>someFunc()</code>的前三个参数。这也是一个在第4章讨论过的部分应用的例子。</p>
 <p>让我们来看一下当你的程序跑在低于ES5的环境中时如何实现<code>Function.prototype.bind()</code>：</p>
@@ -953,7 +958,7 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
           <div class="post-toc">
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承_vs_现代继承模式"><span class="nav-number">1.</span> <span class="nav-text">类式继承 vs 现代继承模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承的期望结果"><span class="nav-number">2.</span> <span class="nav-text">类式继承的期望结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承1——默认模式"><span class="nav-number">3.</span> <span class="nav-text">类式继承1——默认模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪原型链"><span class="nav-number">3.1.</span> <span class="nav-text">跟踪原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这种模式的缺点"><span class="nav-number">3.2.</span> <span class="nav-text">这种模式的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承2——借用构造函数"><span class="nav-number">4.</span> <span class="nav-text">类式继承2——借用构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">4.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用借用构造函数模式实现多继承"><span class="nav-number">4.2.</span> <span class="nav-text">利用借用构造函数模式实现多继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借用构造函数的利与弊"><span class="nav-number">4.3.</span> <span class="nav-text">借用构造函数的利与弊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承3——借用并设置原型"><span class="nav-number">5.</span> <span class="nav-text">类式继承3——借用并设置原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承4——共享原型"><span class="nav-number">6.</span> <span class="nav-text">类式继承4——共享原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承5——临时构造函数"><span class="nav-number">7.</span> <span class="nav-text">类式继承5——临时构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储父类（Superclass）"><span class="nav-number">7.1.</span> <span class="nav-text">存储父类（Superclass）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重置构造函数引用"><span class="nav-number">7.2.</span> <span class="nav-text">重置构造函数引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Klass"><span class="nav-number">8.</span> <span class="nav-text">Klass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型继承"><span class="nav-number">9.</span> <span class="nav-text">原型继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#讨论"><span class="nav-number">9.1.</span> <span class="nav-text">讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript5中的原型继承"><span class="nav-number">9.2.</span> <span class="nav-text">ECMAScript5中的原型继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过复制属性继承"><span class="nav-number">10.</span> <span class="nav-text">通过复制属性继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混元（Mix-ins）"><span class="nav-number">11.</span> <span class="nav-text">混元（Mix-ins）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借用方法"><span class="nav-number">12.</span> <span class="nav-text">借用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例：从数组借用"><span class="nav-number">12.1.</span> <span class="nav-text">例：从数组借用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借用并绑定"><span class="nav-number">12.2.</span> <span class="nav-text">借用并绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Function-prototype-bind()"><span class="nav-number">12.3.</span> <span class="nav-text">Function.prototype.bind()</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承_vs_现代继承模式"><span class="nav-number">1.</span> <span class="nav-text">类式继承 vs 现代继承模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承的期望结果"><span class="nav-number">2.</span> <span class="nav-text">类式继承的期望结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承1——默认模式"><span class="nav-number">3.</span> <span class="nav-text">类式继承1——默认模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#跟踪原型链"><span class="nav-number">3.1.</span> <span class="nav-text">跟踪原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#这种模式的缺点"><span class="nav-number">3.2.</span> <span class="nav-text">这种模式的缺点</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承2——借用构造函数"><span class="nav-number">4.</span> <span class="nav-text">类式继承2——借用构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#原型链"><span class="nav-number">4.1.</span> <span class="nav-text">原型链</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#利用借用构造函数模式实现多继承"><span class="nav-number">4.2.</span> <span class="nav-text">利用借用构造函数模式实现多继承</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借用构造函数的利与弊"><span class="nav-number">4.3.</span> <span class="nav-text">借用构造函数的利与弊</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承3——借用并设置原型"><span class="nav-number">5.</span> <span class="nav-text">类式继承3——借用并设置原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承4——共享原型"><span class="nav-number">6.</span> <span class="nav-text">类式继承4——共享原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类式继承5——临时构造函数"><span class="nav-number">7.</span> <span class="nav-text">类式继承5——临时构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储父类（Superclass）"><span class="nav-number">7.1.</span> <span class="nav-text">存储父类（Superclass）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重置构造函数引用"><span class="nav-number">7.2.</span> <span class="nav-text">重置构造函数引用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Klass"><span class="nav-number">8.</span> <span class="nav-text">Klass</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型继承"><span class="nav-number">9.</span> <span class="nav-text">原型继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#讨论"><span class="nav-number">9.1.</span> <span class="nav-text">讨论</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ECMAScript5中的原型继承"><span class="nav-number">9.2.</span> <span class="nav-text">ECMAScript5中的原型继承</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#通过复制属性继承"><span class="nav-number">10.</span> <span class="nav-text">通过复制属性继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#混元（Mix-ins）"><span class="nav-number">11.</span> <span class="nav-text">混元（Mix-ins）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借用方法"><span class="nav-number">12.</span> <span class="nav-text">借用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#例：从数组借用"><span class="nav-number">12.1.</span> <span class="nav-text">例：从数组借用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借用并绑定"><span class="nav-number">12.2.</span> <span class="nav-text">借用并绑定</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bind()方法"><span class="nav-number">12.3.</span> <span class="nav-text">bind()方法</span></a></li></ol></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
@@ -975,11 +980,11 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
   <span class="with-love">
     <i class="icon-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">flycloud</span>
+  <span class="author" itemprop="copyrightHolder">flycloud : Stay Hungry,Stay Foolish</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+  作者: <a class="theme-link" href="http://flycloud.me">flycloud</a> 
 </div>
 
 <div class="theme-info">
@@ -989,6 +994,9 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
   </a>
 </div>
 
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"><i class="fa fa-spinner fa-spin"></i></span>人次
+</span>
 
 
         </div>
@@ -1028,11 +1036,12 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
     
   
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/fancy-box.js?v=0.4.4"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.4"></script>
+  <script type="text/javascript" src="http://7xowny.com1.z0.glb.clouddn.com/helpers.js?v=0.4.4"></script>
+
   
 
   <script type="text/javascript" src="http://cdn.bootcss.com/velocity/1.2.2/velocity.min.js"></script>
@@ -1200,6 +1209,9 @@ twosay3(); <span class="regexp">//</span> <span class="string">"Enchanté, anoth
 </script>
 
 
+
+  <link rel="stylesheet" href="http://cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<script async src="http://7xowny.com1.z0.glb.clouddn.com/busuanzi.pure.mini.js"></script>
 
 
 
