@@ -26,6 +26,7 @@ html, body{
   top: 10px;
   left: 0;
   z-index: 4;
+  border-bottom: none;
 }
 #hamburger:before,
 #hamburger:after,
@@ -81,3 +82,18 @@ html.mm-opening #hamburger:after
 {
   transform: rotate( -45deg );
 }
+
+
+
+
+@media  (max-width: 760px) {
+
+  #hamburger
+  {
+    border-bottom: 1px solid rgba( 255, 255, 255, 0.5 );
+    opacity: 0.9;
+    width: 100%;
+    top: 0;
+  }
+}
+

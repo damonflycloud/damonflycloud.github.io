@@ -171,7 +171,7 @@ mobile()
   color: $grey-dim;
 }
 .footer-inner {
-  margin: 20px auto;
+  margin: 5px auto;
   text-align: center;
 }
 .powered-by {
