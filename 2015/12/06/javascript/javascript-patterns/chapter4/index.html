@@ -21,10 +21,10 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
-<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>
-<!--<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
-    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>-->
+<!--<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>-->
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
 
 
 
@@ -49,7 +49,7 @@
 <meta property="og:site_name" content="FlyCloud Blog">
 <meta property="og:description" content="熟练运用函数是JavaScript程序员的必备技能，因为在JavaScript中函数实在是太常用了。它能够完成各种类型的任务，而在其他语言中则需要很多特殊的语法支持才能拥有这种能力。
 本章将会介绍在JavaScript中定义函数的几种方式，包括函数表达式和函数声明以及局部作用域和变量声明提前的工作原理。然后会介绍一些有用的模式，帮助你设计API（为你的函数提供更好的接口）、搭建代码架构（使用尽可能">
-<meta property="og:updated_time" content="2015-12-15T13:22:43.688Z">
+<meta property="og:updated_time" content="2016-01-10T13:50:49.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="第四章 函数">
 <meta name="twitter:description" content="熟练运用函数是JavaScript程序员的必备技能，因为在JavaScript中函数实在是太常用了。它能够完成各种类型的任务，而在其他语言中则需要很多特殊的语法支持才能拥有这种能力。
@@ -656,7 +656,7 @@ o.message; <span class="comment">// "call me"</span>
 <p>即时函数还有一些名字，比如“自调用函数”或者“自执行函数”，因为这些函数会在被定义后立即执行自己。</p>
 </blockquote>
 <p>这种模式也经常被用到书签代码中，因为书签代码有可能会运行在任何一个页面中，所以需要非常苛刻地保持全局命名空间干净。</p>
-<p>这种模式也可以让你包裹一些独立的特性到一个封闭的模块中。设想你的页面是静态的，在没有JavaScript的时候工作正常，然后，本着渐进增强的精神，你给页面加入了一点增强代码。这时候，你就可以把你的代码（也可以叫“模块”或者“特性”）放到一个即时函数中并且保证页面在有没有它的时候都可以正常工作。然后你就可以加入更多的增强特性，或者对它们进行移除、进行独立测试或者允许用户禁用等等。</p>
+<p>这种模式也可以让你包裹一些独立的特性到一个封闭的模块中。设想你的页面<code>_````````````_</code>是静态的，在没有JavaScript的时候工作正常，然后，本着渐进增强的精神，你给页面加入了一点增强代码。这时候，你就可以把你的代码（也可以叫“模块”或者“特性”）放到一个即时函数中并且保证页面在有没有它的时候都可以正常工作。然后你就可以加入更多的增强特性，或者对它们进行移除、进行独立测试或者允许用户禁用等等。</p>
 <p>你可以使用下面的模板定义一段函数代码，我们叫它module1：</p>
 <pre><code><span class="comment">// 在module1.js中定义module1</span>
 (<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>{
@@ -1041,7 +1041,7 @@ addSix(<span class="number">5</span>, <span class="number">5</span>); <span clas
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/12/06/javascript/javascript-patterns/chapter3/" rel="next">第三章 字面量和构造函数</a>
+              <a href="/2015/12/06/javascript/javascript-patterns/chapter6/" rel="next">第六章 代码复用模式</a>
             
           </div>
         </div>
@@ -1112,21 +1112,21 @@ addSix(<span class="number">5</span>, <span class="number">5</span>); <span clas
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -1280,6 +1280,28 @@ addSix(<span class="number">5</span>, <span class="number">5</span>); <span clas
             });
 
             
+              var html="<li>" +"<a href='/2016/01/13/Markdown/markdown-style-guide/'>"+ " markdown style guide</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/01/13/Markdown/markdown-style-guide/'>"+" markdown style guide</a></li></ul>"
+              
+                   if($('li#'+"200>ul").length==0){
+                    $('li#'+"200").append(chirldHtml);
+                   }else{
+                    $('li#'+"200>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/04/07/maven/Mave Study/'>"+ " Maven study</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/04/07/maven/Mave Study/'>"+" Maven study</a></li></ul>"
+              
+                   if($('li#'+"300>ul").length==0){
+                    $('li#'+"300").append(chirldHtml);
+                   }else{
+                    $('li#'+"300>ul:first").append(html);
+                   }
+
+              
+            
               var html="<li>" +"<a href='/2015/12/06/javascript/javascript-patterns/chapter8/'>"+ " 第八章 DOM和浏览器中的模式</a></li>";
               var chirldHtml="<ul><li>"+"<a href='/2015/12/06/javascript/javascript-patterns/chapter8/'>"+" 第八章 DOM和浏览器中的模式</a></li></ul>"
               
@@ -1375,6 +1397,39 @@ addSix(<span class="number">5</span>, <span class="number">5</span>); <span clas
                     $('li#'+"2").append(chirldHtml);
                    }else{
                     $('li#'+"2>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/01/13/idea/idea插件/'>"+ " idea 插件精选</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/01/13/idea/idea插件/'>"+" idea 插件精选</a></li></ul>"
+              
+                   if($('li#'+"2>ul").length==0){
+                    $('li#'+"2").append(chirldHtml);
+                   }else{
+                    $('li#'+"2>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/04/07/idea/idea/'>"+ " idea 常用技巧</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/04/07/idea/idea/'>"+" idea 常用技巧</a></li></ul>"
+              
+                   if($('li#'+"2>ul").length==0){
+                    $('li#'+"2").append(chirldHtml);
+                   }else{
+                    $('li#'+"2>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/01/11/html5/html5 Basic/html5 meta 标签了解/'>"+ " html5 meta 标签了解</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/01/11/html5/html5 Basic/html5 meta 标签了解/'>"+" html5 meta 标签了解</a></li></ul>"
+              
+                   if($('li#'+"101>ul").length==0){
+                    $('li#'+"101").append(chirldHtml);
+                   }else{
+                    $('li#'+"101>ul:first").append(html);
                    }
 
               

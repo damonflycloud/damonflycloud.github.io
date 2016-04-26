@@ -21,10 +21,10 @@
 
 
 
-<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
-<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>
-<!--<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
-    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>-->
+<!--<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/main.css?v=0.4.4"/>
+<link rel="stylesheet" type="text/css" href="http://7xowny.com1.z0.glb.clouddn.com/flyCloud.css"/>-->
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.4"/>
+    <link rel="stylesheet" type="text/css" href="/css/flyCloud.css?v=0.4.4"/>
 
 
 
@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="Hexo,next" />
+  <meta name="keywords" content="flycloud" />
 
 
 
@@ -435,21 +435,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">14</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">6</span>
               <span class="site-state-item-name">分类</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
@@ -598,6 +598,28 @@
             });
 
             
+              var html="<li>" +"<a href='/2016/01/13/Markdown/markdown-style-guide/'>"+ " markdown style guide</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/01/13/Markdown/markdown-style-guide/'>"+" markdown style guide</a></li></ul>"
+              
+                   if($('li#'+"200>ul").length==0){
+                    $('li#'+"200").append(chirldHtml);
+                   }else{
+                    $('li#'+"200>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/04/07/maven/Mave Study/'>"+ " Maven study</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/04/07/maven/Mave Study/'>"+" Maven study</a></li></ul>"
+              
+                   if($('li#'+"300>ul").length==0){
+                    $('li#'+"300").append(chirldHtml);
+                   }else{
+                    $('li#'+"300>ul:first").append(html);
+                   }
+
+              
+            
               var html="<li>" +"<a href='/2015/12/06/javascript/javascript-patterns/chapter8/'>"+ " 第八章 DOM和浏览器中的模式</a></li>";
               var chirldHtml="<ul><li>"+"<a href='/2015/12/06/javascript/javascript-patterns/chapter8/'>"+" 第八章 DOM和浏览器中的模式</a></li></ul>"
               
@@ -693,6 +715,39 @@
                     $('li#'+"2").append(chirldHtml);
                    }else{
                     $('li#'+"2>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/01/13/idea/idea插件/'>"+ " idea 插件精选</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/01/13/idea/idea插件/'>"+" idea 插件精选</a></li></ul>"
+              
+                   if($('li#'+"2>ul").length==0){
+                    $('li#'+"2").append(chirldHtml);
+                   }else{
+                    $('li#'+"2>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/04/07/idea/idea/'>"+ " idea 常用技巧</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/04/07/idea/idea/'>"+" idea 常用技巧</a></li></ul>"
+              
+                   if($('li#'+"2>ul").length==0){
+                    $('li#'+"2").append(chirldHtml);
+                   }else{
+                    $('li#'+"2>ul:first").append(html);
+                   }
+
+              
+            
+              var html="<li>" +"<a href='/2016/01/11/html5/html5 Basic/html5 meta 标签了解/'>"+ " html5 meta 标签了解</a></li>";
+              var chirldHtml="<ul><li>"+"<a href='/2016/01/11/html5/html5 Basic/html5 meta 标签了解/'>"+" html5 meta 标签了解</a></li></ul>"
+              
+                   if($('li#'+"101>ul").length==0){
+                    $('li#'+"101").append(chirldHtml);
+                   }else{
+                    $('li#'+"101>ul:first").append(html);
                    }
 
               
